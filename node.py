@@ -11,7 +11,8 @@ primitives_dict = {}  # maps string of class names to classes
 
 
 def register(cls: Type["Node"]) -> None:
-    """Register a primitive in the global dictionary of primitives
+    """
+    Register a primitive in the global dictionary of primitives
 
     Parameters
     ----------
