@@ -2,8 +2,8 @@ from typing import Callable, List, Optional, Union
 
 import numpy as np
 
-from .genome import Genome
-from .individual import IndividualBase, IndividualMultiGenome, IndividualSingleGenome
+from genome import Genome
+from individual import IndividualBase, IndividualMultiGenome, IndividualSingleGenome
 
 
 class Population:
@@ -40,7 +40,7 @@ class Population:
 
         self._genome_params = genome_params
 
-        self._parents: List[IndividualBase] = []  # list of parent individuals
+        self.parents: List[IndividualBase] = []  # list of parent individuals
 
         # keeps track of the number of generations, increases with
         # every new offspring generation
@@ -60,19 +60,19 @@ class Population:
         def key(ind: IndividualBase) -> float:
             return ind.fitness
 
-        return max(self._parents, key=key)
+        return max(self.parents, key=key)
 
     @property
     def parents(self) -> List[IndividualBase]:
-        return self._parents
+        return self.parents
 
     @parents.setter
     def parents(self, new_parents: List[IndividualBase]) -> None:
         self.generation += 1
-        self._parents = new_parents
+        self.parents = new_parents
 
     def __getitem__(self, idx: int) -> IndividualBase:
-        return self._parents[idx]
+        return self.parents[idx]
 
     def _generate_random_parent_population(
         self, individual_init: Optional[Callable[[IndividualBase], IndividualBase]] = None
@@ -83,7 +83,7 @@ class Population:
             if individual_init is not None:
                 ind = individual_init(ind)
             parents.append(ind)
-        self._parents = parents
+        self.parents = parents
 
     def get_idx_for_new_individual(self) -> int:
         idx = self._max_idx
@@ -124,7 +124,7 @@ class Population:
         List[float]
             List of fitness values for all parents.
         """
-        return [ind.fitness for ind in self._parents]
+        return [ind.fitness for ind in self.parents]
 
     def reorder_genome(self) -> None:
         """ Reorders the genome for all parents in the population

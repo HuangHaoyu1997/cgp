@@ -3,7 +3,7 @@ from typing import Iterator, Tuple, Type
 
 import numpy as np
 
-from .node import Node
+from node import Node
 
 
 @dataclass(frozen=True)

@@ -3,9 +3,9 @@ from typing import Dict, Generator, List, Optional, Set, Tuple, Type
 
 import numpy as np
 
-from .cartesian_graph import CartesianGraph
-from .node import Node, OperatorNode
-from .primitives import Primitives
+from cartesian_graph import CartesianGraph
+from node import Node, OperatorNode
+from primitives import Primitives
 
 try:
     import torch  # noqa: F401
@@ -79,7 +79,7 @@ class Genome:
         if primitives is None:
             # we need to delay this import to avoid circular imports: node_impl
             # -> node -> node_validation -> genome
-            from .node_impl import (  # delayed to avoid circular imports
+            from node_impl import (  # delayed to avoid circular imports
                 Add,
                 ConstantFloat,
                 Mul,

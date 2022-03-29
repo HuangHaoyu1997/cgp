@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Set
 
 import numpy as np  # noqa: F401
 
-from .node import Node, OperatorNode
-from .node_input_output import InputNode, OutputNode
+from node import Node, OperatorNode
+from node_input_output import InputNode, OutputNode
 
 try:
     import sympy

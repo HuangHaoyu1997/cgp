@@ -3,8 +3,8 @@ from typing import Callable, List, Optional, Union
 
 import numpy as np
 
-from ..individual import IndividualBase
-from ..population import Population
+from individual import IndividualBase
+from population import Population
 
 
 class MuPlusLambda:
@@ -103,9 +103,8 @@ class MuPlusLambda:
             individual (IndividualBase) as input parameter and return
             a modified individual (with updated fitness).
         """
-        # TODO can we avoid this function? how should a population be
-        # initialized?
-        pop._parents = self._compute_fitness(pop.parents, objective, use_hurdles=False)
+        # TODO can we avoid this function? how should a population be initialized?
+        pop.parents = self._compute_fitness(pop.parents, objective, use_hurdles=False)
 
     def step(
         self, pop: Population, objective: Callable[[IndividualBase], IndividualBase],

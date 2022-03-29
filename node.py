@@ -2,7 +2,7 @@ import math  # noqa: F401
 import re
 from typing import TYPE_CHECKING, Callable, Dict, List, Tuple, Type
 
-from . import node_validation
+import node_validation
 
 if TYPE_CHECKING:
     from .cartesian_graph import CartesianGraph
@@ -157,7 +157,9 @@ class Node:
 
 
 class OperatorNode(Node):
-    """Base class of hidden nodes.
+    """
+    隐层节点类的实现
+    Base class of hidden nodes.
 
     Subclasses provide the atomic operations of the computational graph.
     """

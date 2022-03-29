@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING, List
 
-from .node import Node
+from node import Node
 
 if TYPE_CHECKING:
-    from .cartesian_graph import CartesianGraph
+    from cartesian_graph import CartesianGraph
 
 
 class InputNode(Node):

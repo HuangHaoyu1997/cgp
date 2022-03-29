@@ -3,8 +3,8 @@ from typing import Callable, List, Optional, Set, Tuple, Type
 
 import numpy as np
 
-from .cartesian_graph import CartesianGraph
-from .genome import Genome
+from cartesian_graph import CartesianGraph
+from genome import Genome
 
 try:
     import sympy  # noqa: F401

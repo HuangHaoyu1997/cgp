@@ -18,13 +18,13 @@ except ModuleNotFoundError:
 
 
 if TYPE_CHECKING:
-    from .genome import Genome  # noqa: F401
-    from .node import OperatorNode  # noqa: F401
+    from genome import Genome  # noqa: F401
+    from node import OperatorNode  # noqa: F401
 
 
 def _create_genome(cls: Type["OperatorNode"]) -> "Genome":
     # delayed imports to avoid circular imports
-    from .genome import ID_INPUT_NODE, ID_NON_CODING_GENE, ID_OUTPUT_NODE, Genome
+    from genome import ID_INPUT_NODE, ID_NON_CODING_GENE, ID_OUTPUT_NODE, Genome
 
     primitives = (cls,)
     genome = Genome(1, 1, 1, 1, primitives)
@@ -45,7 +45,7 @@ def _create_genome(cls: Type["OperatorNode"]) -> "Genome":
 
 def check_to_func(cls: Type["OperatorNode"]) -> None:
     # delayed imports to avoid circular imports
-    from .cartesian_graph import CartesianGraph
+    from cartesian_graph import CartesianGraph
 
     genome = _create_genome(cls)
 
@@ -56,7 +56,7 @@ def check_to_func(cls: Type["OperatorNode"]) -> None:
 
 def check_to_numpy(cls: Type["OperatorNode"]) -> None:
     # delayed imports to avoid circular imports
-    from .cartesian_graph import CartesianGraph
+    from cartesian_graph import CartesianGraph
 
     genome = _create_genome(cls)
 
@@ -71,7 +71,7 @@ def check_to_torch(cls: Type["OperatorNode"]) -> None:
         return
 
     # delayed imports to avoid circular imports
-    from .cartesian_graph import CartesianGraph
+    from cartesian_graph import CartesianGraph
 
     genome = _create_genome(cls)
 
@@ -86,7 +86,7 @@ def check_to_sympy(cls: Type["OperatorNode"]) -> None:
         return
 
     # delayed imports to avoid circular imports
-    from .cartesian_graph import CartesianGraph
+    from cartesian_graph import CartesianGraph
 
     genome = _create_genome(cls)
 

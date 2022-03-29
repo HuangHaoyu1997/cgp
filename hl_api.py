@@ -2,9 +2,9 @@ from typing import Callable, Optional
 
 import numpy as np
 
-from .ea import MuPlusLambda
-from .individual import IndividualBase
-from .population import Population
+from ea import MuPlusLambda
+from individual import IndividualBase
+from population import Population
 
 
 def evolve(

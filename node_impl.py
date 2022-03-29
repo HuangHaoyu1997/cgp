@@ -1,4 +1,4 @@
-from .node import OperatorNode
+from node import OperatorNode
 
 
 class ConstantFloat(OperatorNode):
